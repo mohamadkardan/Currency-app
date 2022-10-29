@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="convert">تبدیل</string>
+    <string name="enter_amount">مقدار را وارد نمایید</string>
+    <string name="from">از</string>
+    <string name="to">به</string>
+    <string name="convert_currency">تبدیل ارز</string>
+    <string name="cancel">لغو</string>
+    <string name="currency_rate">نرخ ارز</string>
+    <string name="try_again">تلاش مجدد</string>
+    <string name="get_rates_loading">در حال دریافت نرخ ارز</string>
+</resources>

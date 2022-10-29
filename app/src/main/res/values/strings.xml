@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Currency</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="currencies">ارز ها</string>
+    <string name="convert">تبدیل</string>
+    <string name="enter_amount">مقدار ارز مبدا را وارد نمایید</string>
+    <string name="from">از</string>
+    <string name="to">به</string>
+    <string name="convert_currency">تبدیل نرخ ارز</string>
+    <string name="cancel">لغو</string>
+    <string name="currency_rate">نرخ ارز</string>
+    <string name="rial">ریال ایران</string>
+    <string name="dollar">دلار آمریکا</string>
+    <string name="rubl">روبل روسیه</string>
+    <string name="yuan">یوآن چین</string>
+    <string name="try_again">تلاش مجدد</string>
+    <string name="get_rates_loading">در حال دریافت نرخ ارز</string>
+</resources>

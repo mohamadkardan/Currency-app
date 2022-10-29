@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="currency"
+            type="com.example.currency.model.Currency" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layoutDirection="rtl">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/circleImageView_flag_itemCurrency"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="16dp"
+            android:scaleType="centerCrop"
+            android:setImage="@{currency.countryFlag}"
+            android:src="@drawable/ic_flag_united_states"
+            app:layout_constraintBottom_toBottomOf="@id/textView_currencyRate_itemCurrency"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/textView_currencyName_itemCurrency" />
+
+        <TextView
+            android:id="@+id/textView_currencyName_itemCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/iransanse_medium"
+            android:text="@{currency.fullName,default=دلارآمریکا}"
+            android:textColor="@color/black"
+            android:textSize="17sp"
+            app:layout_constraintStart_toEndOf="@id/circleImageView_flag_itemCurrency"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textView_currencyRate_itemCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:fontFamily="@font/iransanse_medium"
+            android:text="@{currency.code,default=USD}"
+            app:layout_constraintBottom_toBottomOf="@id/circleImageView_flag_itemCurrency"
+            app:layout_constraintStart_toStartOf="@id/textView_currencyName_itemCurrency"
+            app:layout_constraintTop_toBottomOf="@id/textView_currencyName_itemCurrency" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/button_showRate_itemCurrency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="#00BFA5"
+            android:fontFamily="@font/iransanse_medium"
+            android:text="@string/currency_rate"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
