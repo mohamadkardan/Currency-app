@@ -13,13 +13,11 @@ import kotlinx.coroutines.launch
 
 class RateViewModel : ViewModel() {
 
-    var repository: CurrencyRepository? = null
     var getRatesByBaseCodeJob: Job? = null
     var rateByBaseCodeLiveData: MutableLiveData<RatesByBaseCodeResponse>? = null
     var requestDataExceptionLiveData: MutableLiveData<Exception?>? = null
 
     init {
-        repository = CurrencyRepository()
         rateByBaseCodeLiveData = MutableLiveData()
         requestDataExceptionLiveData = MutableLiveData()
     }
@@ -27,7 +25,8 @@ class RateViewModel : ViewModel() {
     fun getRatesByBaseCode(baseCode: String) {
         getRatesByBaseCodeJob = viewModelScope.launch(Dispatchers.IO) {
             try {
-                val response = repository!!.getRatesByBaseCode(baseCode = baseCode).body()
+                val response =
+                    CurrencyRepository.getInstance().getRatesByBaseCode(baseCode = baseCode).body()
                 rateByBaseCodeLiveData!!.postValue(response)
             } catch (e: Exception) {
                 requestDataExceptionLiveData?.postValue(e)
