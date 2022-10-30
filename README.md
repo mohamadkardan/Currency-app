@@ -1,5 +1,9 @@
 # Currency- android application
 
+|  Home           |  Rates | Convert rate |
+|---------------------|----------------------|----------------------|
+|![pomolectron-macos](https://s6.uupload.ir/files/screenshot_20221030-104837_currency_knli.jpg) | ![](https://s6.uupload.ir/files/screenshot_20221030-104844_currency_qru1.jpg) | ![](https://s6.uupload.ir/files/screenshot_20221030-104923_currency_fof.jpg)
+
 ## Table of contents
 * [Introduction](#introduction)
 * [Technologies](#technologies)
