@@ -26,23 +26,22 @@ import kotlin.Exception
 
 class HomeViewModel : ViewModel() {
 
-    private var repository: CurrencyRepository? = null
     var convertorResultLiveData: MutableLiveData<String?>? = null
     var convertResultExceptionLiveData: MutableLiveData<Exception?>? = null
     var isGettingData: MutableLiveData<Boolean> = MutableLiveData(false)
     private var convertResultRequestJob: Job? = null
 
     init {
-        repository = CurrencyRepository()
         convertorResultLiveData = MutableLiveData()
         convertResultExceptionLiveData = MutableLiveData()
     }
 
-    fun getCurrencyList(): MutableList<Currency> = repository!!.getCurrencyList()
+    fun getCurrencyList(): MutableList<Currency> =
+        CurrencyRepository.getInstance().getCurrencyList()
 
     private fun getCurrenciesCode(): MutableList<String> {
         val codes: MutableList<String> = ArrayList()
-        for (currency in repository!!.getCurrencyList()) {
+        for (currency in CurrencyRepository.getInstance().getCurrencyList()) {
             codes.add(currency.code)
         }
         return codes
@@ -63,12 +62,12 @@ class HomeViewModel : ViewModel() {
         convertResultRequestJob = viewModelScope.launch(Dispatchers.IO) {
             try {
                 isGettingData.postValue(true)
-                val response = repository?.getConvertResult(
+                val response = CurrencyRepository.getInstance().getConvertResult(
                     baseCode = baseCode,
                     targetCode = targetCode,
                     amount = amount
                 )
-                convertorResultLiveData?.postValue(response?.body()?.conversion_result.toString())
+                convertorResultLiveData?.postValue(response.body()?.conversion_result.toString())
             } catch (e: Exception) {
                 isGettingData.postValue(false)
                 convertResultExceptionLiveData?.postValue(e)

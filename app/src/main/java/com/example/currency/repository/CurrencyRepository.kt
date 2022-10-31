@@ -10,7 +10,20 @@ import com.example.currency.util.Constants
 import retrofit2.Response
 import java.util.ArrayList
 
-class CurrencyRepository {
+class CurrencyRepository private constructor(){
+
+    companion object {
+
+        private var INSTANCE: CurrencyRepository? = null
+
+        fun getInstance(): CurrencyRepository {
+            if (INSTANCE == null) {
+                INSTANCE = CurrencyRepository()
+            }
+            return INSTANCE!!
+        }
+
+    }
 
     suspend fun getConvertResult(
         baseCode: String,
