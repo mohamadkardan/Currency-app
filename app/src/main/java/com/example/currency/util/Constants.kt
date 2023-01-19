@@ -7,4 +7,5 @@ class Constants {
         val CONVERTOR_BASE_URL = "https://v6.exchangerate-api.com/v6/$CONVERTOR_API_KEY/"
     }
 
+// test comment
 }
